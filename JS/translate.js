@@ -1,5 +1,6 @@
 const translations = {
     vi: {
+        page_title: "Giới thiệu bản thân",
         information: "Giới thiệu",
         aims: "Mục tiêu",
         studies: "Học vấn",
@@ -44,6 +45,7 @@ const translations = {
         contact_github: "Github"
     },
     en: {
+        page_title: "Biography",
         information: "Information",
         aims: "Aims",
         studies: "Studies",
