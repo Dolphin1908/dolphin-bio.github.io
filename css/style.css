@@ -1,0 +1,151 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200;1,300&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Alkalami&family=Lora&family=Montserrat:wght@300&family=Roboto+Slab&family=Roboto:wght@300&display=swap);
+
+html {
+  scroll-behavior: smooth;
+  background: linear-gradient(#fff1eb, #ace0f9);
+}
+
+a {
+  text-decoration: none;
+}
+
+h3 {
+  font-size: 20px;
+  padding-left: 16px;
+  padding-bottom: 3px;
+  margin: 0;
+  font-family: "Roboto Slab", serif;
+}
+
+section {
+  margin-top: 30px;
+  padding: 10px;
+}
+
+.container {
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.container-items {
+  background-color: #f3f4ed;
+}
+
+#topnav {
+  font-family: Montserrat, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+#topnav-right{
+  float: right;
+  display: flex;
+  margin: 8px 0;
+}
+
+#topnav a {
+  float: left;
+  color: #414141;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+#topnav a:hover {
+  background-color: #ddd;
+  color: #000;
+}
+
+.flag{
+  width: 32px;
+  height: 32px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.heading,
+.subheading {
+  font-weight: bold;
+  padding-left: 10px;
+  font-family: Lora, serif;
+}
+
+.heading {
+  font-size: 24px;
+  margin: 0;
+  padding: 0 10 0 0;
+}
+.subheading {
+  font-size: 20px;
+  padding-top: 0;
+  margin-top: 4px;
+}
+
+.row {
+  max-height: 370px;
+  display: flex;
+  margin-left: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.col-40,
+.col-50 {
+  width: 40%;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  font-family: "Roboto Slab", serif;
+}
+
+.col-40 {
+  font-size: 16;
+}
+
+.title {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 700;
+}
+
+.col-1 {
+  width: 30%;
+  padding-bottom: 20px;
+}
+.col-2 {
+  width: 50%;
+}
+
+.col-3 {
+  width: 20%;
+  background-image: url(./image/avatar.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.line {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+}
+
+.subtitle,
+.subtitle a {
+  font-family: "Roboto Slab", serif;
+  color: #495464;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#hobbies,
+#information,
+#studies {
+  background-color: #f3f4ed;
+}
+#contact,
+#aims,
+#skills {
+  background-color: #f6f5f5;
+}
