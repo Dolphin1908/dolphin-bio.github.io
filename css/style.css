@@ -121,7 +121,7 @@ section {
 
 .col-3 {
   width: 20%;
-  background-image: url(./image/avatar.jpg);
+  background-image: url(../image/avatar.jpg);
   background-repeat: no-repeat;
   background-size: contain;
 }
