@@ -92,6 +92,8 @@ const translations = {
 };
 
 function changeLanguage(lang) {
+    document.documentElement.lang = lang;
+
     document.querySelectorAll('[data_key]').forEach(element => {
         const key = element.getAttribute('data_key');
         if (translations[lang] && translations[lang][key]) {
