@@ -133,10 +133,22 @@ section {
 
 .subtitle,
 .subtitle a {
-  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+  font-family: Montserrat, sans-serif;
   color: #495464;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.subtitle,
+.title {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.title {
+  font-family: Roboto, Helvetica, sans-serif;
+  font-weight: 700;
 }
 
 #hobbies,
@@ -148,4 +160,8 @@ section {
 #aims,
 #skills {
   background-color: #f6f5f5;
+}
+
+hr{
+  border: 2px solid #839b97;
 }

@@ -20,7 +20,7 @@ const translations = {
         email: "thanhsonnguyen1908@gmail.com",
         address: "62C/13, Bà Hom, Phường 13, Quận 6, TP.HCM",
         aims_title: "MỤC TIÊU NGHỀ NGHIỆP",
-        aims_description: "Là sinh viên năm 3 chuyên ngành Công nghệ Thông tin, tôi mong muốn áp dụng kiến thức và kỹ năng đã học vào thực tiễn thông qua các cơ hội thực tập và làm việc tại một công ty công nghệ hàng đầu. Mục tiêu của tôi là phát triển sự nghiệp trong lĩnh vực phát triển phần mềm, nơi tôi có thể đóng góp vào các dự án sáng tạo và học hỏi từ những chuyên gia trong ngành.",
+        aims_description: "Là sinh viên năm 3 chuyên ngành Công nghệ Thông tin, tôi mong muốn áp dụng kiến thức và kỹ năng đã học vào thực tiễn thông qua các cơ hội thực tập và làm việc tại một công ty công nghệ. Mục tiêu của tôi là phát triển sự nghiệp trong lĩnh vực phát triển phần mềm, nơi tôi có thể đóng góp vào các dự án sáng tạo và học hỏi từ những chuyên gia trong ngành.",
         studies_title: "HỌC VẤN",
         studies_duration: "08/2021 _ 08/2025",
         studies_institute: "Đại học Khoa học Tự nhiên TP.HCM",
