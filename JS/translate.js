@@ -83,6 +83,7 @@ const translations = {
         aims: "Aims",
         studies: "Studies",
         skills: "Skills",
+        projects: "Projects",
         hobbies: "Hobbies",
         contact: "Contact",
 
