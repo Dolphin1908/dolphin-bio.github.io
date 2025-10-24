@@ -1,171 +1,322 @@
-@import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200;1,300&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Alkalami&family=Lora&family=Montserrat:wght@300&family=Roboto+Slab&family=Roboto:wght@300&display=swap);
+/* ----- 1. IMPORT FONTS HIỆN ĐẠI ----- */
+/* Chúng ta sẽ đơn giản hóa, chỉ dùng Poppins cho tiêu đề và Roboto cho nội dung */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Lora&family=Montserrat:wght@300&family=Roboto+Slab&family=Roboto:wght@300&display=swap');
+
+/* ----- 2. THIẾT LẬP CƠ BẢN (GLOBAL RESET) ----- */
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box; /* Giúp việc quản lý padding và border dễ dàng hơn */
+}
 
 html {
-  scroll-behavior: smooth;
-  background: linear-gradient(#fff1eb, #ace0f9);
+ scroll-behavior: smooth; /* Giữ lại hiệu ứng cuộn mượt */
+}
+
+body {
+ background: linear-gradient(to bottom, #e0f2f7, #ffffff);
+ font-family: "Roboto Slab", serif;
+ color: #333;
+ line-height: 1.6;
 }
 
 a {
-  text-decoration: none;
+ text-decoration: none;
+ color: #007bff; /* Màu link xanh dương dễ nhận biết */
+ transition: color 0.3s ease; /* Hiệu ứng hover mượt */
 }
 
-h3 {
-  font-size: 20px;
-  padding-left: 16px;
-  padding-bottom: 3px;
-  margin: 0;
-  font-family: "Roboto Slab", serif;
+a:hover {
+ color: #0056b3;
 }
 
-section {
-  margin-top: 30px;
-  padding: 10px;
-}
-
+/* ----- 3. BỐ CỤC CHÍNH (CONTAINER) ----- */
 .container {
-  width: 60%;
-  margin: 0 auto;
-  border-radius: 10px;
+ /* Bỏ 'width: 60%', dùng 'max-width' để responsive tốt hơn */
+ max-width: 1000px; 
+ width: 90%; /* Có khoảng hở 2 bên trên di động */
+ margin: 0 auto;
+ padding-bottom: 30px; /* Thêm khoảng đệm ở dưới cùng */
 }
 
-.container-items {
-  background-color: #f3f4ed;
-}
-
+/* ----- 4. THANH ĐIỀU HƯỚNG (TOPNAV) ----- */
 #topnav {
-  font-family: Montserrat, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #fff;
-  overflow: hidden;
-}
-
-#topnav-right{
-  float: right;
-  display: flex;
-  margin: 8px 0;
+ font-family: Montserrat, sans-serif;
+ background-color: #ffffff;
+ overflow: hidden;
+ border-radius: 0 0 10px 10px; /* Bo góc dưới */
+ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ */
+ position: sticky; /* !!! Hiệu ứng dính trên cùng khi cuộn !!! */
+ top: 0;
+ z-index: 1000;
+ margin-bottom: 30px; /* Tạo khoảng cách với nội dung bên dưới */
 }
 
 #topnav a {
-  float: left;
-  color: #414141;
-  text-align: center;
-  padding: 14px 16px;
-  font-size: 16px;
-  font-weight: bolder;
+ float: left;
+ color: #414141;
+ text-align: center;
+ padding: 14px 18px;
+ font-size: 16px;
+ font-weight: 600; /* Đậm vừa phải */
 }
 
 #topnav a:hover {
-  background-color: #ddd;
-  color: #000;
+ background-color: #f4f7f6; /* Đổi màu nền khi hover */
+ color: #007bff;
 }
 
-.flag{
-  width: 32px;
-  height: 32px;
-  margin: 0 5px;
-  cursor: pointer;
+#topnav-right {
+ float: right;
+ display: flex;
+ margin: 8px 10px; /* Căn chỉnh lại cờ */
 }
 
-.heading,
-.subheading {
-  font-weight: bold;
-  padding-left: 10px;
-  font-family: Lora, serif;
+.flag {
+ width: 32px;
+ height: 32px;
+ margin: 0 5px;
+ cursor: pointer;
+ border-radius: 50%; /* Bo tròn cờ cho đẹp hơn */
+ transition: transform 0.3s ease;
 }
 
-.heading {
-  font-size: 24px;
-  margin: 0;
-  padding: 0 10 0 0;
-}
-.subheading {
-  font-size: 20px;
-  padding-top: 0;
-  margin-top: 4px;
+.flag:hover {
+ transform: scale(1.1); /* Phóng to nhẹ khi hover */
 }
 
-.row {
-  max-height: 370px;
-  display: flex;
-  margin-left: 16px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+/* ----- 5. THIẾT KẾ DẠNG "THẺ" (CARD) ----- */
+/* Đây là thay đổi lớn nhất. Mỗi section sẽ là 1 "thẻ" trắng */
+.container-items {
+ background-color: #ffffff;
+ border-radius: 12px; /* Bo góc nhiều hơn */
+ box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07); /* Đổ bóng rõ hơn */
+ padding: 2rem; /* Dùng 'rem' cho khoảng cách co giãn tốt */
+ margin-top: 30px;
 }
 
-.col-40,
-.col-50 {
-  width: 40%;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  font-family: "Roboto Slab", serif;
+/* Bỏ việc đổi màu xen kẽ, tất cả đều là thẻ trắng cho sạch sẽ */
+#contact,
+#projects,
+#information,
+#studies,
+#aims,
+#skills,
+#hobbies {
+ background-color: #ffffff;
 }
 
-.col-50 p{
-  margin: 8px 0px;
+/* ----- 6. TYPOGRAPHY (TIÊU ĐỀ & CHỮ) ----- */
+h1, h3 {
+    font-family: "Roboto Slab", serif;
+    color: #2c3e50; /* Màu xanh đen đậm */
 }
 
-.col-40 {
-  font-size: 16;
+h3 {
+ font-size: 1.75rem; /* 28px */
+ padding-left: 0; /* Bỏ padding cũ */
+ margin-bottom: 10px;
+ border-bottom: 3px solid #007bff; /* Tạo đường gạch chân màu xanh */
+ display: inline-block; /* Để đường gạch chân chỉ dài bằng chữ */
+ padding-bottom: 5px;
 }
 
-.title {
-  font-family: "Times New Roman", Times, serif;
-  font-weight: 700;
+.heading { /* Tên "Nguyễn Thanh Sơn" */
+ font-size: 2.5rem; /* 40px */
+ font-weight: 700;
+ margin: 0;
+ padding: 0;
 }
 
-.col-1 {
-  width: 30%;
-  padding-bottom: 20px;
-}
-.col-2 {
-  width: 50%;
-}
-
-.col-3 {
-  width: 20%;
-  background-image: url(../image/avatar.jpg);
-  background-repeat: no-repeat;
-  background-size: contain;
+.subheading { /* "Sinh viên IT" */
+ font-size: 1.5rem; /* 24px */
+ font-weight: 400;
+ color: #555;
+ margin-top: 5px;
+ margin-bottom: 20px; /* Thêm khoảng cách trước hàng thông tin */
 }
 
-.line {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 2px;
+.title { /* "Ngày sinh:", "Giới tính:"... */
+ font-family: "Roboto Slab", serif;
+ font-weight: 700;
+ color: #333;
+ margin: 8px 0;
 }
 
 .subtitle,
 .subtitle a {
-  font-weight: 700;
-  font-family: Montserrat, sans-serif;
-  color: #495464;
-  padding-top: 5px;
-  padding-bottom: 5px;
+ font-family: Montserrat, sans-serif;
+ font-weight: 400; /* Chữ thường, không cần in đậm */
+ color: #495464;
+ margin: 8px 0;
 }
 
-.subtitle,
-.title {
-  padding-top: 5px;
-  padding-bottom: 5px;
+.subtitle {
+ padding: 0; /* Reset padding cũ */
 }
 
-.title {
-  font-family: Roboto, Helvetica, sans-serif;
-  font-weight: 700;
+/* Dùng cho ul/li (Sở thích, Liên hệ) */
+ul {
+ list-style-position: inside;
+ padding-left: 10px;
+}
+ul li {
+ margin-bottom: 10px;
 }
 
-#hobbies,
-#information,
-#studies {
-  background-color: #f3f4ed;
-}
-#contact,
-#aims,
-#skills {
-  background-color: #f6f5f5;
+/* ----- 7. THIẾT KẾ LẠI BỐ CỤC (LAYOUT) ----- */
+.row {
+ display: flex; /* !!! Dùng Flexbox cho bố cục hiện đại !!! */
+ flex-wrap: wrap; /* Cho phép xuống hàng trên di động */
+ gap: 2rem; /* Tạo khoảng cách 2rem giữa các cột */
+ margin-left: 0; /* Reset margin cũ */
+ padding-top: 8px;
+ padding-bottom: 8px;
+ width: 100%;
 }
 
-hr{
-  border: 2px solid #839b97;
+/* Bỏ các class .col-40, .col-50 cũ */
+/* Thay vào đó, chúng ta sẽ định nghĩa lại các .col-1, .col-2, .col-3 */
+
+#information .row {
+ align-items: center; /* Căn giữa các item theo chiều dọc */
+}
+
+.col-1 {
+ flex-basis: 120px; /* Độ rộng cố định cho nhãn */
+ flex-shrink: 0;
+}
+.col-2 {
+ flex: 1; /* Tự động co giãn lấp đầy không gian */
+ min-width: 250px; /* Độ rộng tối thiểu trước khi xuống hàng */
+}
+.col-3 {
+ flex-basis: 180px; /* Cố định độ rộng cho avatar */
+ flex-shrink: 0;
+ text-align: center;
+}
+
+.avatar-image {
+ width: 180px;
+ height: 180px;
+ border-radius: 50%; /* !!! Avatar hình tròn !!! */
+ object-fit: cover; /* Đảm bảo ảnh không bị méo */
+ border: 5px solid #fff;
+ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Bố cục cho Học vấn */
+#studies .col-40 {
+ flex-basis: 150px; /* Cố định độ rộng cho thời gian */
+ font-weight: 600;
+ color: #007bff;
+}
+#studies .col-50 {
+ flex: 1;
+}
+#studies .col-50 p {
+ margin: 0;
+}
+
+/* Bố cục cho Kỹ năng & Dự án */
+/* Chúng ta sẽ tái sử dụng .col-40 và .col-50 nhưng với Flexbox */
+.col-40 {
+ flex-basis: 30%; /* Chiếm 30% */
+ min-width: 200px;
+ font-weight: 600;
+}
+.col-50 {
+ flex: 1; /* Chiếm phần còn lại */
+ min-width: 300px;
+}
+.col-50 p, .col-50 ul {
+ margin: 0 0 10px 0;
+}
+.col-50 ul {
+ padding-left: 20px;
+}
+
+/* Đường kẻ */
+hr {
+ border: 0;
+ height: 1px;
+ background-color: #e0e0e0; /* Màu xám nhạt */
+ margin: 1.5rem 0; /* Tăng khoảng cách */
+}
+.line { /* Đường kẻ mỏng hơn giữa các item */
+ border: 0;
+ height: 1px;
+ background-color: #f0f0f0;
+ margin: 1rem 0;
+}
+
+
+/* ----- 8. RESPONSIVE CHO DI ĐỘNG ----- */
+@media (max-width: 768px) {
+ .container {
+  width: 95%; /* Gần sát mép hơn trên di động */
+ }
+
+ h3 {
+  font-size: 1.5rem; /* 24px */
+ }
+ .heading {
+  font-size: 2rem; /* 32px */
+ }
+ .subheading {
+  font-size: 1.25rem; /* 20px */
+ }
+ 
+ /* Cho các cột trong .row xếp chồng lên nhau */
+ .row {
+  flex-direction: column;
+  gap: 1rem; /* Giảm khoảng cách khi xếp chồng */
+ }
+
+ /* Avatar sẽ đi lên đầu trong phần Thông tin */
+ #information .row {
+  flex-direction: column-reverse; /* Đảo ngược, cho avatar lên trên */
+  align-items: flex-start; /* Căn trái */
+ }
+ .col-3 {
+  text-align: left;
+  margin-bottom: 1rem;
+ }
+ .avatar-image {
+  width: 120px;
+  height: 120px;
+ }
+ .col-1 {
+  flex-basis: auto; /* Bỏ độ rộng cố định */
+  width: 100%;
+ }
+ .col-2 {
+  min-width: auto;
+  width: 100%;
+ }
+ 
+ /* Xếp chồng cho các section khác */
+ .col-40, .col-50 {
+  flex-basis: auto;
+  width: 100%;
+  min-width: auto;
+ }
+ #studies .col-40 {
+  margin-bottom: 5px;
+ }
+
+ /* Điều chỉnh Topnav cho di động */
+ #topnav a {
+  float: none;
+  display: block;
+  text-align: left;
+  padding: 12px 16px;
+ }
+ #topnav-right {
+  float: none;
+  justify-content: flex-start;
+  margin: 8px 16px;
+ }
 }
