@@ -20,7 +20,7 @@ const translations = {
         gender: "Nam",
         phone: "+84 826 624 629",
         email: "thanhsonnguyen1908@gmail.com",
-        address: "62C/13, Bà Hom, Phường 13, Quận 6, TP.HCM",
+        address: "24B5, Hà Huy Giáp, phường Thạnh Lộc, quận 12, TP.HCM",
 
         aims_title: "MỤC TIÊU NGHỀ NGHIỆP",
         aims_description: "Là sinh viên năm 3 chuyên ngành Công nghệ Thông tin, tôi mong muốn áp dụng kiến thức và kỹ năng đã học vào thực tiễn thông qua các cơ hội thực tập và làm việc tại một công ty công nghệ. Mục tiêu của tôi là phát triển sự nghiệp trong lĩnh vực phát triển phần mềm, nơi tôi có thể đóng góp vào các dự án sáng tạo và học hỏi từ những chuyên gia trong ngành.",
@@ -98,7 +98,7 @@ const translations = {
         gender: "Male",
         phone: "+84 826 624 629",
         email: "thanhsonnguyen1908@gmail.com",
-        address: "62C/13, Ba Hom, Ward 13, District 6, HCM City",
+        address: "24B5, Ha Huy Giap Street, Thanh Loc Ward, District 12, HCMC",
 
         aims_title: "CAREER OBJECTIVES",
         aims_description: "As a third-year Information Technology major, I am eager to apply my knowledge and skills in a practical setting through internships and job opportunities at a tech company. My goal is to develop a career in software development, where I can contribute to innovative projects and learn from industry experts.",
