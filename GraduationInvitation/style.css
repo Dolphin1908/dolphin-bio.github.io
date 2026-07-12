@@ -1,0 +1,237 @@
+@font-face {
+    font-family: "Pinyon Script";
+    src: url(./fonts/PinyonScript-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Fz Bonestay";
+    src: url(./fonts/FZ%20Bonestay.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "Monsieur La Doulaise";
+    src: url(./fonts/MonsieurLaDoulaise-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Tangerine";
+    src: url(./fonts/SVN-Tangerine-HB.otf) format("opentype");
+}
+
+/* Hệ thống biến màu sắc (Tùy chỉnh không dùng UI Library) */
+:root {
+    --bg-dark: #070c1a;
+    --cover-main: #0f172a;      
+    --gold: #d4af37;            
+    --gold-light: #f3e5ab;
+    --paper: #fdf6e3;           /* Màu giấy hoàng gia */
+    --text-dark: #2c3e50;
+    --transition-time: 1.2s;      
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: radial-gradient(circle at center, #1a2a4c 0%, var(--bg-dark) 100%);
+    color: var(--text-dark);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* NÚT ÂM NHẠC */
+.music-btn {
+    position: fixed; top: 20px; right: 20px; z-index: 1000;
+    background: var(--cover-main); color: var(--gold);
+    border: 1px solid var(--gold); border-radius: 25px;
+    padding: 10px 20px; font-weight: bold; cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: 0.3s ease;
+}
+.music-btn:hover { background: var(--gold); color: var(--cover-main); }
+.music-btn.playing { animation: pulse 2s infinite; }
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(0,0,0,0); }
+    100% { box-shadow: 0 0 0 0 rgba(0,0,0,0); }
+}
+
+/* ================= CẤU TRÚC SÁCH CHUẨN ================= */
+.book-container {
+    perspective: 2000px; /* Không gian 3D sâu hơn để không bị lỗi góc nhìn */
+    width: 100vw; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.book {
+    position: relative;
+    width: 90vw; max-width: 800px;
+    height: 65vh; max-height: 550px;
+    transform-style: preserve-3d;
+    transition: transform var(--transition-time) ease;
+    /* Dịch chuyển sách về bên trái 25% khi đóng để nó nằm ngay giữa màn hình */
+    transform: translateX(-25%); 
+}
+
+/* Sách mở ra thì trả về giữa */
+.book.is-open {
+    transform: translateX(0);
+}
+
+.page {
+    position: absolute;
+    top: 0;
+    right: 0; /* Ép tất cả các trang nằm ở NỬA BÊN PHẢI của cuốn sách */
+    width: 50%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform-origin: left center; /* Gáy sách nằm ở cạnh trái của trang */
+    transition: transform var(--transition-time) cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+}
+
+/* Lật trang: Xoay -180 độ sang NỬA BÊN TRÁI */
+.page.flipped {
+    transform: rotateY(-180deg);
+}
+
+.front, .back {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; /* Ẩn mặt sau */
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    border-radius: 4px 12px 12px 4px;
+    box-shadow: inset 5px 0 15px rgba(0,0,0,0.05);
+}
+
+/* Sửa lỗi Z-fighting của Safari: thêm translateZ */
+.front { transform: rotateY(0deg) translateZ(1px); }
+
+.back {
+    transform: rotateY(180deg) translateZ(1px);
+    border-radius: 12px 4px 4px 12px; /* Đổi góc bo tròn khi lật */
+}
+
+/* ================= TRANG TRÍ ================= */
+.cover {
+    background: linear-gradient(135deg, var(--cover-main), #1e293b);
+    border: 2px solid var(--gold);
+    color: var(--gold); text-align: center;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
+}
+
+.cover-content h1 { font-size: 2rem; margin-bottom: 30px; line-height: 1.4; }
+.hint { animation: bounce 1.5s infinite; }
+.hint .finger { font-size: 2rem; }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* Góc kim loại hoàng gia */
+.gold-corner { position: absolute; width: 30px; height: 30px; border: 3px solid var(--gold); }
+.top-left { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+.top-right { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+.bottom-left { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+.bottom-right { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+
+.ribbon {
+    position: absolute; top: -5px; right: 30px;
+    width: 25px; height: 70px; background: #991b1b;
+}
+
+/* Phong cách giấy cuộn hoàng gia (Royal Style) */
+.paper.royal-style {
+    background-color: var(--paper);
+    padding: 15px;
+}
+.paper-inner {
+    border: 1px solid var(--gold);
+    outline: 1px dashed var(--gold); outline-offset: -5px;
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 20px; text-align: center;
+}
+.title-gold { color: var(--gold); margin-bottom: 20px; text-transform: uppercase; font-size: 1.4rem; }
+.paper-inner p { margin-bottom: 12px; line-height: 1.6; font-size: 1rem; }
+.highlight { font-weight: bold; color: #991b1b; font-size: 1.1rem !important; }
+.signature { font-family: "Fz Bonestay", cursive; font-size: 1.5rem !important; margin-top: 20px; color: var(--cover-main); }
+
+.btn-map {
+    margin-top: 15px; padding: 10px 20px;
+    background: var(--cover-main); color: var(--gold-light);
+    border: none; border-radius: 4px; cursor: pointer;
+    font-weight: bold; transition: 0.3s;
+}
+.btn-map:hover { background: var(--gold); color: var(--cover-main); }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .book { width: 95vw; height: 60vh; transform: translateX(-23.5vw); }
+    .cover-content h1 { font-size: 1.4rem; }
+    .paper-inner p { font-size: 0.85rem; margin-bottom: 8px; }
+    .title-gold { font-size: 1.1rem; }
+}
+
+/* ================= KHUNG ẢNH ĐẠI DIỆN ================= */
+.avatar-wrapper {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 15px auto; /* Canh giữa và tạo khoảng cách với chữ bên dưới */
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    padding: 4px; /* Tạo khoảng trống giữa ảnh và viền ngoài */
+    background: transparent;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+/* Thêm vòng sáng nhẹ phía sau ảnh */
+.avatar-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    border-radius: 50%;
+    border: 1px dashed var(--gold);
+    opacity: 0.5;
+    z-index: 0;
+    animation: rotateDash 10s linear infinite; /* Hiệu ứng xoay viền nhẹ nhàng */
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover; /* Cắt ảnh tỉ lệ chuẩn không bị méo */
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes rotateDash {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Tinh chỉnh lại một chút khoảng cách trên mobile để không bị chật */
+@media (max-width: 768px) {
+    .avatar-wrapper {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 10px;
+    }
+}
+
+/* ================= CANH GIỮA BÌA SAU ================= */
+/* Khi sách đóng lại ở bìa sau, đẩy trọng tâm sang phải 25% để sách nằm giữa màn hình */
+.book.is-closed-back {
+    transform: translateX(25%);
+}
+
+/* ================= TRANG TRÍ TÊN KHÁCH MỜI ================= */
+.guest-name {
+    font-weight: bold;
+    color: #991b1b; /* Màu đỏ đô hoàng gia */
+    font-size: 1.2rem;
+    font-family: "Tangerine", cursive; /* Font chữ nghiêng, mềm mại như thiệp viết tay */
+}

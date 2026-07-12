@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Mời Tốt Nghiệp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Nút điều khiển âm nhạc -->
+    <audio id="bg-music" loop>
+        <source src="nhac-nen.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-btn" class="music-btn">🎵 Bật Nhạc</button>
+
+    <!-- Khung chứa sách -->
+    <div class="book-container">
+        <div class="book" id="book">
+
+            <!-- TRANG 1: Bìa sách & Lời mời -->
+            <div class="page" id="page1">
+                <div class="front cover">
+                    <div class="gold-corner top-left"></div>
+                    <div class="gold-corner top-right"></div>
+                    <div class="gold-corner bottom-left"></div>
+                    <div class="gold-corner bottom-right"></div>
+                    <div class="ribbon"></div>
+
+                    <div class="cover-content">
+                        <h1>THIỆP MỜI<br>TỐT NGHIỆP</h1>
+                        <div class="hint">
+                            <span class="finger">👆</span>
+                            <p>Chạm để lật trang</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- CẬP NHẬT TRONG MẶT SAU CỦA TRANG 1 -->
+                <div class="back paper royal-style">
+                    <div class="paper-inner">
+                        <div class="avatar-wrapper">
+                            <img src="avatar.jpg" alt="Thanh Sơn" class="avatar-img">
+                        </div>
+                        <h2 class="title-gold">Thân Mời</h2>
+
+                        <!-- Thay đổi dòng chữ này -->
+                        <p>Gửi <span id="guest-name" class="guest-name">bạn</span>,</p>
+
+                        <p id="invitation-message">Chặng đường đại học sắp khép lại. Mình rất mong bạn có thể đến chung vui và lưu giữ khoảnh khắc đáng nhớ cùng mình.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRANG 2: Thông tin & Địa điểm -->
+            <div class="page" id="page2">
+                <div class="front paper royal-style">
+                    <div class="paper-inner">
+                        <h2 class="title-gold">Sự Kiện</h2>
+                        <p class="highlight">Lễ Trao Bằng Cử Nhân</p>
+                        <p><strong>Sinh viên:</strong> Nguyễn Thanh Sơn</p>
+                        <p><strong>Khoa:</strong> Công Nghệ Thông Tin</p>
+                        <p><strong>Thời gian:</strong> 08:00 | Thứ Bảy, 15/08</p>
+                    </div>
+                </div>
+                <div class="back paper royal-style">
+                    <div class="paper-inner">
+                        <h2 class="title-gold">Địa Điểm</h2>
+                        <p><strong>Hội trường Chính</strong></p>
+                        <p>Trường Đại học Khoa học Tự nhiên Tp.HCM</p>
+                        <p><em>*Dresscode: Tự do & Thoải mái</em></p>
+                        <button class="btn-map" onclick="window.open('https://maps.app.goo.gl/zYvXzKv4U9DvfRnv6', '_blank')">📍 Google
+                            Maps</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRANG 3: Lời Cảm Ơn & Bìa sau -->
+            <div class="page" id="page3">
+                <div class="front paper royal-style">
+                    <div class="paper-inner">
+                        <h2 class="title-gold">Lời Cảm Ơn</h2>
+                        <p id="thankyou-message">Sự hiện diện của bạn là món quà tuyệt vời nhất trong ngày vui của mình.</p>
+                        <p class="signature">Thanh Sơn</p>
+                    </div>
+                </div>
+                <div class="back cover">
+                    <div class="gold-corner bottom-left"></div>
+                    <div class="gold-corner bottom-right"></div>
+                    <div class="emblem">❖</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
