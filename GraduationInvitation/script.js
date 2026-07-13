@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const customMessages={
-        "kim hảo": "Cuối cùng ngày này cũng đến! Mình rất mong bạn có thể đến chung vui và lưu giữ khoảnh khắc đáng nhớ cùng mình."
+        "kim hảo": "Cuốn sách thanh xuân trên giảng đường của mình chuẩn bị khép lại chương cuối. Nhìn lại chặng đường vừa qua, mọi thứ sẽ không thể rực rỡ và ý nghĩa đến thế nếu thiếu đi những người đã luôn âm thầm đồng hành. Ngày hôm đó mong có sự xuất hiện của Hảo chung vui cùng mình nhé."
     };
 
     const randomMessages=[
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
 
     const customThankYou={
-        "kim hảo": "Cảm ơn bạn đã đến và làm cho ngày tốt nghiệp của mình trở nên đặc biệt hơn. Sự hiện diện của bạn là món quà quý giá nhất mà mình có thể nhận được."
+        "kim hảo": "Cảm ơn vì đã đồng hành cùng Sơn qua những năm đại học đầy cảm xúc, mặc dù gặp nhau có thể không nhiều nhưng mà luôn đầy những kỷ niệm. Nên là sự hiện diện của Hảo ngày hôm đó chính là món quà ý nghĩa nhất mà Sơn có thể nhận được."
     }
 
     const randomThankYou=[
@@ -129,19 +129,57 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================
     // 3. XỬ LÝ NÚT ÂM NHẠC
     // =========================================
-    let isPlaying = false;
+    let isPlaying = true; // Nhạc nền tự động phát khi mở trang
     bgMusic.volume = 0.4; 
 
     musicBtn.addEventListener('click', () => {
         if (isPlaying) {
             bgMusic.pause();
-            musicBtn.innerHTML = '🎵 Bật Nhạc';
-            musicBtn.classList.remove('playing');
+            musicBtn.classList.remove('playing'); // Chỉ gỡ class, không đổi chữ
         } else {
             bgMusic.play();
-            musicBtn.innerHTML = '⏸ Tắt Nhạc';
-            musicBtn.classList.add('playing');
+            musicBtn.classList.add('playing'); // Chỉ thêm class
         }
         isPlaying = !isPlaying;
     });
+
+    // =========================================
+    // 5. XỬ LÝ PHÓNG TO ẢNH BẢN ĐỒ (LIGHTBOX)
+    // =========================================
+    const mapThumbnail = document.getElementById('map-thumbnail');
+    const mapLightbox = document.getElementById('map-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeLightbox = document.getElementById('close-lightbox');
+
+    if (mapThumbnail) {
+        mapThumbnail.addEventListener('click', (e) => {
+            // CỰC KỲ QUAN TRỌNG: Ngăn chặn click lan ra phần tử '.page' gây lật sách
+            e.stopPropagation(); 
+            
+            // Lấy nguồn ảnh từ thumbnail gán vào ảnh to
+            lightboxImg.src = mapThumbnail.src; 
+            
+            // Hiển thị khung popup
+            mapLightbox.classList.add('active'); 
+        });
+    }
+
+    // Đóng popup khi bấm nút X
+    if (closeLightbox) {
+        closeLightbox.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mapLightbox.classList.remove('active');
+        });
+    }
+
+    // Đóng popup khi bấm ra khoảng đen bên ngoài ảnh
+    if (mapLightbox) {
+        mapLightbox.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Nếu vị trí click chính là khung nền đen (không phải tấm ảnh) thì đóng
+            if (e.target === mapLightbox) {
+                mapLightbox.classList.remove('active');
+            }
+        });
+    }
 });

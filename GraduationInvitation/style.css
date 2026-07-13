@@ -43,17 +43,56 @@ body {
 }
 
 /* NÚT ÂM NHẠC */
+/* ================= NÚT ÂM NHẠC TINH TẾ ================= */
 .music-btn {
-    position: fixed; top: 20px; right: 20px; z-index: 1000;
-    background: var(--cover-main); color: var(--gold);
-    border: 1px solid var(--gold); border-radius: 25px;
-    padding: 10px 20px; font-weight: bold; cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: 0.3s ease;
+    position: fixed; 
+    top: 20px; 
+    right: 20px; 
+    z-index: 1000;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    /* Nền kính mờ hòa quyện với background */
+    background: rgba(15, 23, 42, 0.6); 
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: var(--gold);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
 }
-.music-btn:hover { background: var(--gold); color: var(--cover-main); }
-.music-btn.playing { animation: pulse 2s infinite; }
-@keyframes pulse {
+
+.music-btn:hover { 
+    background: var(--cover-main); 
+    border-color: var(--gold);
+    transform: scale(1.1);
+}
+
+.music-icon {
+    width: 22px;
+    height: 22px;
+}
+
+/* Khi đang phát nhạc: Nút tỏa sáng nhẹ và icon nốt nhạc xoay tròn */
+.music-btn.playing { 
+    animation: pulseSoft 2.5s infinite; 
+    border-color: var(--gold);
+}
+
+.music-btn.playing .music-icon {
+    animation: spinRecord 4s linear infinite;
+}
+
+@keyframes spinRecord {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseSoft {
     0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
     70% { box-shadow: 0 0 0 10px rgba(0,0,0,0); }
     100% { box-shadow: 0 0 0 0 rgba(0,0,0,0); }
@@ -70,11 +109,11 @@ body {
 
 .book {
     position: relative;
-    width: 90vw; max-width: 800px;
-    height: 65vh; max-height: 550px;
+    /* Tăng kích thước tối đa cho laptop/desktop */
+    width: 92vw; max-width: 1000px; 
+    height: 75vh; max-height: 650px; 
     transform-style: preserve-3d;
     transition: transform var(--transition-time) ease;
-    /* Dịch chuyển sách về bên trái 25% khi đóng để nó nằm ngay giữa màn hình */
     transform: translateX(-25%); 
 }
 
@@ -153,10 +192,10 @@ body {
     display: flex; flex-direction: column; justify-content: center;
     padding: 20px; text-align: center;
 }
-.title-gold { color: var(--gold); margin-bottom: 20px; text-transform: uppercase; font-size: 1.4rem; }
+.title-gold { color: var(--gold); margin-bottom: 20px; text-transform: uppercase; font-size: 1.6rem; }
 .paper-inner p { margin-bottom: 12px; line-height: 1.6; font-size: 1rem; }
 .highlight { font-weight: bold; color: #991b1b; font-size: 1.1rem !important; }
-.signature { font-family: "Fz Bonestay", cursive; font-size: 1.5rem !important; margin-top: 20px; color: var(--cover-main); }
+.signature { font-family: "Fz Bonestay", cursive; font-size: 2.5rem !important; margin-top: 20px; color: var(--cover-main); }
 
 .btn-map {
     margin-top: 15px; padding: 10px 20px;
@@ -168,16 +207,32 @@ body {
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-    .book { width: 95vw; height: 60vh; transform: translateX(-23.5vw); }
-    .cover-content h1 { font-size: 1.4rem; }
-    .paper-inner p { font-size: 0.85rem; margin-bottom: 8px; }
-    .title-gold { font-size: 1.1rem; }
+    /* Điều chỉnh tỷ lệ để sách cao hơn, vừa vặn với màn hình dọc của điện thoại */
+    .book { 
+        width: 95vw; 
+        height: 75vh; 
+        transform: translateX(-25vw); 
+    }
+    
+    /* Đảm bảo sách canh giữa chuẩn xác khi đóng ở bìa sau trên mobile */
+    .book.is-closed-back {
+        transform: translateX(25vw);
+    }
+
+    /* Tăng nhẹ kích thước chữ để dễ đọc hơn trên điện thoại */
+    .cover-content h1 { font-size: 1.6rem; }
+    .paper-inner p { font-size: 0.95rem; margin-bottom: 10px; line-height: 1.5; }
+    .title-gold { font-size: 1.3rem; margin-bottom: 15px; }
+    
+    /* Thu nhỏ avatar và icon một chút để tiết kiệm không gian */
+    .avatar-wrapper { width: 85px; height: 85px; margin-bottom: 10px; }
+    .grad-cap-icon { width: 45px; height: 45px; margin-bottom: 5px; }
 }
 
 /* ================= KHUNG ẢNH ĐẠI DIỆN ================= */
 .avatar-wrapper {
-    width: 110px;
-    height: 110px;
+    width: 150px;
+    height: 150px;
     margin: 0 auto 15px auto; /* Canh giữa và tạo khoảng cách với chữ bên dưới */
     border-radius: 50%;
     border: 2px solid var(--gold);
@@ -232,6 +287,121 @@ body {
 .guest-name {
     font-weight: bold;
     color: #991b1b; /* Màu đỏ đô hoàng gia */
-    font-size: 1.2rem;
-    font-family: "Tangerine", cursive; /* Font chữ nghiêng, mềm mại như thiệp viết tay */
+}
+
+/* ================= ICON NÓN TỐT NGHIỆP ================= */
+.icon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px; /* Tạo khoảng cách với chữ SỰ KIỆN */
+}
+
+.grad-cap-icon {
+    width: 100px;
+    height: 100px;
+    color: var(--gold); /* Dùng biến màu vàng kim của hệ thống */
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.1)); /* Tạo hiệu ứng bóng đổ nhẹ làm nổi bật icon */
+}
+
+/* (Tùy chọn) Thêm hiệu ứng nổi nhẹ cho icon khi trang được lật tới */
+@keyframes floatIcon {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.grad-cap-icon {
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+/* ================= BẢN ĐỒ ĐỖ XE (THUMBNAIL) ================= */
+.map-wrapper {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+}
+
+.map-caption {
+    font-size: 0.85rem !important;
+    color: var(--cover-main);
+    margin-top: 8px !important;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.parking-map {
+    width: 90%; 
+    height: 140px; /* Chiều cao cố định để ép ảnh vào khung */
+    object-fit: fill; /* Ép hiển thị toàn bộ ảnh, chấp nhận bị bóp ngang/dọc */
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    filter: sepia(0.2) brightness(0.95); 
+    cursor: pointer; /* Đổi con trỏ thành bàn tay để biết có thể click */
+    transition: filter 0.3s ease;
+}
+
+.parking-map:hover {
+    filter: sepia(0) brightness(1); /* Sáng lên khi đưa chuột vào */
+}
+
+/* ================= KHUNG XEM ẢNH PHÓNG TO (LIGHTBOX) ================= */
+.map-lightbox {
+    display: none; /* Mặc định ẩn */
+    position: fixed;
+    z-index: 9999; /* Luôn nằm trên cùng */
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(7, 12, 26, 0.9); /* Nền đen hơi trong suốt */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Kích hoạt hiển thị popup */
+.map-lightbox.active {
+    display: flex; 
+}
+
+/* Ảnh khi được phóng to */
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 85vh;
+    border: 3px solid var(--gold);
+    border-radius: 8px;
+    object-fit: contain; /* Giữ ĐÚNG TỶ LỆ GỐC khi xem lớn, không bóp méo */
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+    animation: zoomIn 0.3s ease;
+}
+
+/* Nút X tắt ảnh */
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--gold);
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close-lightbox:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .parking-map { height: 110px; }
+    .close-lightbox { top: 10px; right: 20px; font-size: 40px; }
 }

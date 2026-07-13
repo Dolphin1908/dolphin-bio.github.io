@@ -11,10 +11,14 @@
 <body>
 
     <!-- Nút điều khiển âm nhạc -->
-    <audio id="bg-music" loop>
-        <source src="nhac-nen.mp3" type="audio/mpeg">
+    <audio id="bg-music" loop autoplay>
+        <source src="music.weba" type="audio/webm">
     </audio>
-    <button id="music-btn" class="music-btn">🎵 Bật Nhạc</button>
+    <button id="music-btn" class="music-btn playing" title="Bật/Tắt Nhạc">
+        <svg class="music-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+        </svg>
+    </button>
 
     <!-- Khung chứa sách -->
     <div class="book-container">
@@ -48,7 +52,7 @@
                         <!-- Thay đổi dòng chữ này -->
                         <p>Gửi <span id="guest-name" class="guest-name">bạn</span>,</p>
 
-                        <p id="invitation-message">Chặng đường đại học sắp khép lại. Mình rất mong bạn có thể đến chung vui và lưu giữ khoảnh khắc đáng nhớ cùng mình.</p>
+                        <p id="invitation-message" >Chặng đường đại học sắp khép lại. Mình rất mong bạn có thể đến chung vui và lưu giữ khoảnh khắc đáng nhớ cùng mình.</p>
                     </div>
                 </div>
             </div>
@@ -57,11 +61,17 @@
             <div class="page" id="page2">
                 <div class="front paper royal-style">
                     <div class="paper-inner">
+                        <div class="icon-wrapper">
+                            <svg class="grad-cap-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                            </svg>
+                        </div>
+
                         <h2 class="title-gold">Sự Kiện</h2>
                         <p class="highlight">Lễ Trao Bằng Cử Nhân</p>
                         <p><strong>Sinh viên:</strong> Nguyễn Thanh Sơn</p>
                         <p><strong>Khoa:</strong> Công Nghệ Thông Tin</p>
-                        <p><strong>Thời gian:</strong> 08:00 | Thứ Bảy, 15/08</p>
+                        <p><strong>Thời gian:</strong> 08:00 | Thứ Bảy, 18/07</p>
                     </div>
                 </div>
                 <div class="back paper royal-style">
@@ -69,9 +79,17 @@
                         <h2 class="title-gold">Địa Điểm</h2>
                         <p><strong>Hội trường Chính</strong></p>
                         <p>Trường Đại học Khoa học Tự nhiên Tp.HCM</p>
+                        
+                        <!-- THÊM BẢN ĐỒ ĐỖ XE TẠI ĐÂY -->
+                        <!-- MẶT SAU TRANG 2: Thông tin & Địa điểm -->
+                        <div class="map-wrapper">
+                            <!-- Thêm id="map-thumbnail" -->
+                             <img src="map.png" alt="Sơ đồ đỗ xe" class="parking-map" id="map-thumbnail">
+                             <p class="map-caption">Sơ đồ bãi đỗ xe (Chạm vào để phóng to)</p>
+                        </div>
+
                         <p><em>*Dresscode: Tự do & Thoải mái</em></p>
-                        <button class="btn-map" onclick="window.open('https://maps.app.goo.gl/zYvXzKv4U9DvfRnv6', '_blank')">📍 Google
-                            Maps</button>
+                        <button class="btn-map" onclick="window.open('https://maps.app.goo.gl/zYvXzKv4U9DvfRnv6', '_blank')">📍 Google Maps</button>
                     </div>
                 </div>
             </div>
@@ -93,6 +111,11 @@
             </div>
 
         </div>
+    </div>
+    
+    <div id="map-lightbox" class="map-lightbox">
+        <span class="close-lightbox" id="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Sơ đồ phóng to">
     </div>
 
     <script src="script.js"></script>
