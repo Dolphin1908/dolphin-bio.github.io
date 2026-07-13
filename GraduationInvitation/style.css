@@ -1,11 +1,11 @@
 @font-face {
-    font-family: "Pinyon Script";
+    font-family: "Pinyon-Script";
     src: url(./fonts/PinyonScript-Regular.ttf) format("truetype");
 }
 
 @font-face {
-    font-family: "Fz Bonestay";
-    src: url(./fonts/FZ%20Bonestay.otf) format("opentype");
+    font-family: "Fz-Bonestay";
+    src: url(./fonts/FZBonestay.otf) format("opentype");
 }
 
 @font-face {
@@ -195,7 +195,7 @@ body {
 .title-gold { color: var(--gold); margin-bottom: 20px; text-transform: uppercase; font-size: 1.6rem; }
 .paper-inner p { margin-bottom: 12px; line-height: 1.6; font-size: 1rem; }
 .highlight { font-weight: bold; color: #991b1b; font-size: 1.1rem !important; }
-.signature { font-family: "Fz Bonestay", cursive; font-size: 2.5rem !important; margin-top: 20px; color: var(--cover-main); }
+.signature { font-family: "Fz-Bonestay", cursive; font-size: 2.5rem !important; margin-top: 20px; color: var(--cover-main); }
 
 .btn-map {
     margin-top: 15px; padding: 10px 20px;
