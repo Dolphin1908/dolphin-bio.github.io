@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const customMessages={
-        "kim hảo": "Cuốn sách thanh xuân trên giảng đường của mình chuẩn bị khép lại chương cuối. Nhìn lại chặng đường vừa qua, mọi thứ sẽ không thể rực rỡ và ý nghĩa đến thế nếu thiếu đi những người đã luôn âm thầm đồng hành. Ngày hôm đó mong có sự xuất hiện của Hảo chung vui cùng mình nhé."
+        "kim hảo": "Cuốn sách thanh xuân trên giảng đường của mình chuẩn bị khép lại chương cuối. Nhìn lại chặng đường vừa qua, mọi thứ sẽ không thể rực rỡ và ý nghĩa đến thế nếu thiếu đi những người đã luôn âm thầm đồng hành. Ngày hôm đó mong có sự xuất hiện của Hảo chung vui cùng mình nhé.",
+        "phúc tịnh": "Từ cậu nhóc lớp 5 ngày nào đến khoảnh khắc khoác lên mình chiếc áo cử nhân, hành trình trưởng thành của Sơn luôn có Tịnh đồng hành. Cột mốc thanh xuân này sẽ thiếu đi sự trọn vẹn nếu không có người bạn thân nhất ở bên. Đến chung vui cùng Sơn nhé!",
     };
 
     const randomMessages=[
@@ -12,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
 
     const customThankYou={
-        "kim hảo": "Cảm ơn vì đã đồng hành cùng Sơn qua những năm đại học đầy cảm xúc, mặc dù gặp nhau có thể không nhiều nhưng mà luôn đầy những kỷ niệm. Nên là sự hiện diện của Hảo ngày hôm đó chính là món quà ý nghĩa nhất mà Sơn có thể nhận được."
+        "kim hảo": "Cảm ơn vì đã đồng hành cùng Sơn qua những năm đại học đầy cảm xúc, mặc dù gặp nhau có thể không nhiều nhưng mà luôn đầy những kỷ niệm. Nên là sự hiện diện của Hảo ngày hôm đó chính là món quà ý nghĩa nhất mà Sơn có thể nhận được.",
+        "phúc tịnh": "Hơn một thập kỷ gắn bó, cảm ơn Tịnh vì đã luôn ở đó từ những ngày ấu thơ cho đến khi chúng ta cùng bước ra thế giới lớn. Sự hiện diện của Tịnh hôm nay chính là minh chứng tuyệt vời nhất cho tình bạn của chúng ta."
     }
 
     const randomThankYou=[
