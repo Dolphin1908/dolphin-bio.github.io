@@ -127,21 +127,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================
-    // 3. XỬ LÝ NÚT ÂM NHẠC
+    // 3. XỬ LÝ NÚT ÂM NHẠC (TƯƠNG TÁC ĐỂ PHÁT)
     // =========================================
-    let isPlaying = true; // Nhạc nền tự động phát khi mở trang
+    let isPlaying = false; 
     bgMusic.volume = 0.4; 
 
-    musicBtn.addEventListener('click', () => {
+    // Hàm xử lý bật/tắt nhạc dùng chung
+    function toggleMusic() {
         if (isPlaying) {
             bgMusic.pause();
-            musicBtn.classList.remove('playing'); // Chỉ gỡ class, không đổi chữ
+            musicBtn.classList.remove('playing');
         } else {
             bgMusic.play();
-            musicBtn.classList.add('playing'); // Chỉ thêm class
+            musicBtn.classList.add('playing');
         }
         isPlaying = !isPlaying;
+    }
+
+    // Sự kiện 1: Khách mời chủ động bấm vào nút nhạc ở góc màn hình
+    musicBtn.addEventListener('click', (e) => {
+        // Ngăn chặn việc click vào nút nhạc vô tình làm lật trang sách
+        e.stopPropagation(); 
+        toggleMusic();
     });
+
+    // Sự kiện 2: "Đánh thức" âm thanh ngay lần chạm đầu tiên vào màn hình (Khi khách chạm lật bìa sách)
+    document.body.addEventListener('click', function unlockAudio() {
+        if (!isPlaying) {
+            toggleMusic();
+        }
+        // Cực kỳ quan trọng: Hủy lắng nghe sự kiện này ngay sau lần chạm đầu tiên 
+        // để trình duyệt không phải gọi lại hàm này ở các lần lật trang sau, giúp web nhẹ hơn.
+        document.body.removeEventListener('click', unlockAudio);
+    }, { once: true });
 
     // =========================================
     // 5. XỬ LÝ PHÓNG TO ẢNH BẢN ĐỒ (LIGHTBOX)

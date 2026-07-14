@@ -405,3 +405,108 @@ body {
     .parking-map { height: 110px; }
     .close-lightbox { top: 10px; right: 20px; font-size: 40px; }
 }
+
+/* ================= MÀN HÌNH YÊU CẦU XOAY NGANG ================= */
+.rotate-overlay {
+    display: none; /* Mặc định ẩn */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: var(--cover-main);
+    z-index: 99999;
+    color: var(--gold);
+    text-align: center;
+}
+
+.rotate-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+
+.phone-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+    animation: rotatePhone 2s infinite ease-in-out;
+}
+
+.rotate-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rotate-content p {
+    font-size: 1rem;
+    color: #e2e8f0;
+    line-height: 1.5;
+}
+
+/* Hiệu ứng hoạt họa mô phỏng thao tác xoay điện thoại */
+@keyframes rotatePhone {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(-90deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* ================= BẮT SỰ KIỆN XOAY MÀN HÌNH BẰNG CSS ================= */
+/* Chỉ kích hoạt trên thiết bị di động VÀ khi đang cầm dọc (portrait) */
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+    /* Hiện màn hình khóa */
+    .rotate-overlay {
+        display: block;
+    }
+    
+    /* Ẩn toàn bộ thiệp và nút nhạc để không bị bấm nhầm */
+    .book-container, .music-btn, .stars-container {
+        display: none !important;
+    }
+}
+
+/* ================= KHI XOAY NGANG (TỰ ĐỘNG SCALE NHƯ LAPTOP) ================= */
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+    .book {
+        /* Xóa bỏ width tĩnh, dùng aspect-ratio để khóa tỷ lệ chuẩn của cuốn sách (ví dụ 1.4:1) */
+        width: auto;
+        height: 85vh; /* Cuốn sách luôn chiếm tối đa 85% chiều cao màn hình, không bao giờ bị tràn */
+        aspect-ratio: 1.4 / 1; 
+        max-width: 90vw; /* Ngăn sách bị bè ra quá to trên máy tính bảng */
+        transform: translateX(-25%); 
+    }
+    
+    .book.is-closed-back {
+        transform: translateX(25%);
+    }
+
+    /* ĐỒNG BỘ NỘI DUNG THEO CHIỀU CAO (vh) THAY VÌ ĐƠN VỊ px hay rem */
+    /* Khi chiều cao màn hình thấp, chữ và hình cũng sẽ tự động teo nhỏ lại vừa khít */
+    .cover-content h1 { font-size: 6vh; margin-bottom: 3vh; }
+    .hint .finger { font-size: 5vh; }
+    .hint p { font-size: 2.5vh; }
+
+    .paper-inner { padding: 3vh; }
+    .title-gold { font-size: 4vh; margin-bottom: 2vh; }
+    .paper-inner p { font-size: 2.5vh; margin-bottom: 1.5vh; line-height: 1.5; }
+    
+    .highlight { font-size: 2.8vh !important; }
+    .signature { font-size: 4vh !important; margin-top: 2vh; }
+    .guest-name { font-size: 3vh !important; }
+
+    /* Tối ưu Avatar, Bản đồ và Icon */
+    .avatar-wrapper { width: 20vh; height: 20vh; margin-bottom: 2vh; padding: 0.5vh; }
+    .grad-cap-icon { width: 10vh; height: 10vh; margin-bottom: 1.5vh; }
+    
+    .btn-map { padding: 1.5vh 3vh; font-size: 2vh; margin-top: 1vh; }
+    .map-wrapper { margin: 2vh 0; }
+    .parking-map { height: 18vh; border-width: 2px; }
+    .map-caption { font-size: 1.8vh !important; margin-top: 1vh !important; }
+
+    /* Thu nhỏ các góc vàng và ruy băng */
+    .gold-corner { width: 4vh; height: 4vh; border-width: 2px; }
+    .ribbon { width: 3vh; height: 10vh; right: 4vh; }
+    .ribbon::after { bottom: -2vh; border-left-width: 1.5vh; border-right-width: 1.5vh; border-bottom-width: 2vh; }
+}
