@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const customMessages={
         "kim hảo": "Cuốn sách thanh xuân trên giảng đường của mình chuẩn bị khép lại chương cuối. Nhìn lại chặng đường vừa qua, mọi thứ sẽ không thể rực rỡ và ý nghĩa đến thế nếu thiếu đi những người đã luôn âm thầm đồng hành. Ngày hôm đó mong có sự xuất hiện của Hảo chung vui cùng mình nhé.",
         "phúc tịnh": "Từ cậu nhóc lớp 5 ngày nào đến khoảnh khắc khoác lên mình chiếc áo cử nhân, hành trình trưởng thành của Sơn luôn có Tịnh đồng hành. Cột mốc thanh xuân này sẽ thiếu đi sự trọn vẹn nếu không có người bạn thân nhất ở bên. Đến chung vui cùng Sơn nhé!",
+        "nguyệt vân": "Hành trình đi đến ngày hôm nay của em có lẽ đã khó khăn hơn rất nhiều nếu không có sự ủng hộ và những lời khuyên chân thành từ chị. Khi khép lại chương sách đại học này, người em mong muốn được chia sẻ khoảnh khắc tự hào nhất chính là chị. Chị đến chung vui cùng em trong ngày lễ tốt nghiệp nhé!"
     };
 
     const randomMessages=[
@@ -14,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const customThankYou={
         "kim hảo": "Cảm ơn vì đã đồng hành cùng Sơn qua những năm đại học đầy cảm xúc, mặc dù gặp nhau có thể không nhiều nhưng mà luôn đầy những kỷ niệm. Nên là sự hiện diện của Hảo ngày hôm đó chính là món quà ý nghĩa nhất mà Sơn có thể nhận được.",
-        "phúc tịnh": "Hơn một thập kỷ gắn bó, cảm ơn Tịnh vì đã luôn ở đó từ những ngày ấu thơ cho đến khi chúng ta cùng bước ra thế giới lớn. Sự hiện diện của Tịnh hôm nay chính là minh chứng tuyệt vời nhất cho tình bạn của chúng ta."
+        "phúc tịnh": "Hơn một thập kỷ gắn bó, cảm ơn Tịnh vì đã luôn ở đó từ những ngày ấu thơ cho đến khi chúng ta cùng bước ra thế giới lớn. Sự hiện diện của Tịnh hôm nay chính là minh chứng tuyệt vời nhất cho tình bạn của chúng ta.",
+        "nguyệt vân": "Cảm ơn chị vì đã luôn là hậu phương vững chắc, lắng nghe và thúc đẩy em không ngừng tiến về phía trước trong suốt những năm tháng qua. Sự hiện diện của chị trong ngày em nhận bằng là niềm hạnh phúc và tự hào lớn nhất của em."
     }
 
     const randomThankYou=[
