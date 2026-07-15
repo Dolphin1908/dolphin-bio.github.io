@@ -3,7 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const customMessages={
         "kim hảo": "Cuốn sách thanh xuân trên giảng đường của mình chuẩn bị khép lại chương cuối. Nhìn lại chặng đường vừa qua, mọi thứ sẽ không thể rực rỡ và ý nghĩa đến thế nếu thiếu đi những người đã luôn âm thầm đồng hành. Ngày hôm đó mong có sự xuất hiện của Hảo chung vui cùng mình nhé.",
         "phúc tịnh": "Từ cậu nhóc lớp 5 ngày nào đến khoảnh khắc khoác lên mình chiếc áo cử nhân, hành trình trưởng thành của Sơn luôn có Tịnh đồng hành. Cột mốc thanh xuân này sẽ thiếu đi sự trọn vẹn nếu không có người bạn thân nhất ở bên. Đến chung vui cùng Sơn nhé!",
-        "nguyệt vân": "Hành trình đi đến ngày hôm nay của em có lẽ đã khó khăn hơn rất nhiều nếu không có sự ủng hộ và những lời khuyên chân thành từ chị. Khi khép lại chương sách đại học này, người em mong muốn được chia sẻ khoảnh khắc tự hào nhất chính là chị. Chị đến chung vui cùng em trong ngày lễ tốt nghiệp nhé!"
+        "nguyệt vân": "Hành trình đi đến ngày hôm nay của em có lẽ đã khó khăn hơn rất nhiều nếu không có sự ủng hộ và những lời khuyên chân thành từ chị. Khi khép lại chương sách đại học này, người em mong muốn được chia sẻ khoảnh khắc tự hào nhất chính là chị. Chị đến chung vui cùng em trong ngày lễ tốt nghiệp nhé!",
+        "cô tư": "Cô ơi, hành trình đại học của con sắp khép lại. Con rất mong cô và gia đình có thể đến chung vui và lưu giữ khoảnh khắc đáng nhớ cùng con trong ngày lễ tốt nghiệp.",
+        "dượng tư": "Dượng ơi, hành trình đại học của con sắp khép lại. Con rất mong dượng và gia đình có thể đến chung vui và lưu giữ khoảnh khắc đáng nhớ cùng con trong ngày lễ tốt nghiệp.",
+        "đồng thịnh": "Chặng đường đại học sắp khép lại. Anh rất mong em có thể đến chung vui và lưu giữ khoảnh khắc đáng nhớ cùng anh trong ngày lễ tốt nghiệp.",
+        "mẹ": "Mẹ luôn là người bạn đồng hành tuyệt vời nhất của con qua từng cột mốc cuộc đời. Ngày vui nhận bằng này làm sao có thể trọn vẹn nếu thiếu mẹ được! Mẹ nhớ đến và chụp thật nhiều ảnh đẹp cùng tân cử nhân của mẹ nhé!",
+        "ba": "Ba luôn là tấm gương sáng và là chỗ dựa vững chắc nhất đời con. Tấm bằng cử nhân này có được là nhờ những giọt mồ hôi và sự hy sinh thầm lặng của ba. Ba hãy đến dự lễ tốt nghiệp và chứng kiến khoảnh khắc con trưởng thành nhé!"
     };
 
     const randomMessages=[
@@ -16,7 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const customThankYou={
         "kim hảo": "Cảm ơn vì đã đồng hành cùng Sơn qua những năm đại học đầy cảm xúc, mặc dù gặp nhau có thể không nhiều nhưng mà luôn đầy những kỷ niệm. Nên là sự hiện diện của Hảo ngày hôm đó chính là món quà ý nghĩa nhất mà Sơn có thể nhận được.",
         "phúc tịnh": "Hơn một thập kỷ gắn bó, cảm ơn Tịnh vì đã luôn ở đó từ những ngày ấu thơ cho đến khi chúng ta cùng bước ra thế giới lớn. Sự hiện diện của Tịnh hôm nay chính là minh chứng tuyệt vời nhất cho tình bạn của chúng ta.",
-        "nguyệt vân": "Cảm ơn chị vì đã luôn là hậu phương vững chắc, lắng nghe và thúc đẩy em không ngừng tiến về phía trước trong suốt những năm tháng qua. Sự hiện diện của chị trong ngày em nhận bằng là niềm hạnh phúc và tự hào lớn nhất của em."
+        "nguyệt vân": "Cảm ơn chị vì đã luôn là hậu phương vững chắc, lắng nghe và thúc đẩy em không ngừng tiến về phía trước trong suốt những năm tháng qua. Sự hiện diện của chị trong ngày em nhận bằng là niềm hạnh phúc và tự hào lớn nhất của em.",
+        "cô tư": "Cảm ơn cô vì đã luôn đồng hành cùng con trong chặng đường đại học. Sự hiện diện của cô trong ngày con nhận bằng là niềm hạnh phúc và tự hào lớn nhất của con.",
+        "dượng tư": "Cảm ơn dượng vì đã luôn ủng hộ và động viên con trong suốt những năm tháng qua. Sự hiện diện của dượng trong ngày con nhận bằng là niềm hạnh phúc và tự hào lớn nhất của con.",
+        "đồng thịnh": "Cảm ơn em vì đã luôn đồng hành cùng anh trong chặng đường đại học. Sự hiện diện của em trong ngày anh nhận bằng là niềm hạnh phúc và tự hào lớn nhất của anh.",
+        "mẹ": "Cảm ơn mẹ vì đã luôn lắng nghe, bao dung và ủng hộ mọi quyết định của con. Nhìn thấy nụ cười của mẹ trong ngày hôm nay chính là món quà tốt nghiệp ý nghĩa nhất mà con nhận được.",
+        "ba": "Con cảm ơn ba vì luôn vất vả gánh vác gia đình để cho con một tương lai tươi sáng. Không có sự nghiêm khắc và tình yêu thương bao la của ba, con sẽ không thể vững bước như ngày hôm nay."
     }
 
     const randomThankYou=[
